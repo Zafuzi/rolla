@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOTTO</title>
+    <style>
+        body, html {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            font-size: 1rem;
+            font-family: sans-serif;
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: row wrap;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%,-50%, 0);
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: .86;
+            border-radius: 3px;
+        }
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: yellow;
+        }
+        .center {
+            text-align: center;
+        }
+        td {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section style="width: 33.33%;">
+            <h1>Rolla</h1>
+            <p>The game is simple, spend cash to gain letters. Sell the letters to get more cash. See how many rolls you can get before running out of cash.</p>
+            <p>Careful, the cost to roll goes up when you sell. The more you sell the more it goes up.</p>
+            <p>A is worth the most, E is worth the least</p>
+        </section>
+
+        <section id="tpl_display" class="center">
+            
+            <h2>Cash Left: $__cash__</h2>
+            <table>
+                <thead>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td style="padding: 10px; margin: 10px; color: blue; font-size: 2rem;">Total Rolls</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>__a__</td>
+                        <td>__b__</td>
+                        <td>__c__</td>
+                        <td>__d__</td>
+                        <td>__e__</td>
+                        <td style="padding: 10px; margin: 10px; color: blue; font-size: 2rem;">__total__</td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sell('a');">Sell</button></td>
+                        <td><button onclick="sell('b');">Sell</button></td>
+                        <td><button onclick="sell('c');">Sell</button></td>
+                        <td><button onclick="sell('d');">Sell</button></td>
+                        <td><button onclick="sell('e');">Sell</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form id="number_picker">
+                <button type="submit" value="Roll" style="background: green; margin: 25px; color: white; font-size: 1.5rem;">Roll $__cost__</button>
+            </form>
+        </section>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.18/chance.min.js"></script>
+    <script src="replicate.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
